@@ -66,7 +66,7 @@
   visibility: visible;
   transition: opacity 0.3s ease 0s;
 }
-.timeline ul li > label .fa {
+.timeline ul li > label .icon {
   background: #bdbdbd;
   color: #fff;
   border-radius: 50%;
@@ -79,8 +79,8 @@
   text-align: center;
   transition: all 0.3s ease-out;
 }
-.timeline ul li > label:hover .fa,
-.timeline ul li > input:focus ~ label .fa {
+.timeline ul li > label:hover .icon,
+.timeline ul li > input:focus ~ label .icon {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .timeline.top ul li > div {
