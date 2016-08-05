@@ -1,0 +1,167 @@
+﻿/*
+    Author: André Luiz Rabêllo
+
+    Horizontal timeline
+*/
+
+// Master element
+.horizontal-timeline {
+    @line-size: 6px;
+    @size: 40px;
+    @transition-speed: 0.3s;
+    @timespan-margin: 16px;
+    @line-color: rgb(60, 141, 188);
+    .line-background(@progress) {
+        
+        // Color definition
+        @max-opacity: 80%;
+        @min-opacity: 20%;
+
+        // Progress location
+        @opacity-length: 2;
+        @start-opacity: max(@progress - @opacity-length, @min);
+        @end-opacity: min(@progress + @opacity-length, @max);
+
+        // Transparent limits
+        @min: 3;
+        @max: 97;
+        @step: (@max-opacity - @min-opacity) / @min;
+
+        .background() when (@progress >= 0) and (@progress =< @min) {
+            background: linear-gradient(to right,   transparent 0%,
+                                                    fadeout(@line-color, 100% - @min-opacity - @progress * @step) @min * 1%,
+                                                    fadeout(@line-color, @max-opacity) (@min + @opacity-length) * 1%,
+                                                    fadeout(@line-color, @max-opacity) @max * 1%,
+                                                    transparent 100%);
+        }
+        .background() when (@progress > @min) and (@progress < @max) {
+            background: linear-gradient(to right,   transparent 0%,
+                                                    fadeout(@line-color, @min-opacity) @min * 1%,
+                                                    fadeout(@line-color, @min-opacity) @start-opacity * 1%,
+                                                    fadeout(@line-color, @max-opacity) @end-opacity * 1%,
+                                                    fadeout(@line-color, @max-opacity) @max * 1%,
+                                                    transparent 100%);
+        }
+        .background() when (@progress >= @max) and (@progress =< 100) {
+            background: linear-gradient(to right,   transparent 0%,
+                                                    fadeout(@line-color, @min-opacity) @min * 1%,
+                                                    fadeout(@line-color, @min-opacity) (@max - @opacity-length) * 1%,
+                                                    fadeout(@line-color, @max-opacity - (@progress - @max) * @step) @max * 1%,
+                                                    transparent 100%);
+        }
+
+        .background();
+    }
+    
+    position: relative;
+    margin-top: @timespan-margin;
+    margin-bottom: 30px;
+
+    // Progress line
+    &:before {
+        .line-background(0); // Default progress is 0%
+
+        content: "";
+        height: @line-size;
+        position: absolute;
+        top: @size / 2 - @line-size / 2;
+        right: 0;
+        left: 0;
+    }
+
+    // List of items
+    ul {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            position: relative;
+
+            > div {
+                @box-size: 160px;
+
+                background: #fff;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+                            0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                min-width: @box-size;
+                left: -(@box-size - @size) / 2; // center the box
+                opacity: 0;
+                overflow: hidden;
+                padding: 5px 10px;
+                position: absolute;
+                transition: opacity @transition-speed ease 0s,
+                            visibility 0s linear @transition-speed;
+                visibility: hidden;
+                width: auto;
+                z-index: 5;
+
+                > div + div {
+                    margin-top: 10px;
+                }
+            }
+
+            > .timespan {
+                position: absolute;
+                top: -@timespan-margin;
+                right: -@size;
+                left: -@size;
+                text-align: center;
+                color: #777;
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+            > input {
+                position: absolute;
+                left: -9999px;
+            }
+
+            > input:focus ~ div,
+            > label:hover ~ div {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity @transition-speed ease 0s;
+            }
+
+            > label .fa {
+                background: #bdbdbd;
+                color: #fff;
+                border-radius: 50%;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+                            0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+                font-size: @size / 2;
+                height: @size;
+                line-height: @size;
+                width: @size;
+                text-align: center;
+                transition: all 0.3s ease-out;
+            }
+
+            > label:hover .fa,
+            > input:focus ~ label .fa {
+                box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+                            0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+    // Repositioning of details box
+    &.top ul li > div {
+        bottom: @size / 2 + 8px;
+    }
+
+    // Width for progress line
+	@i: 1;
+	.loop (@i) when (@i =< 100) {
+		&[data-progress="@{i}"]:before {
+            .line-background(@i);
+		}
+		.loop(@i + 1);
+	}
+	.loop(@i);
+}
