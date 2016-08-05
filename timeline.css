@@ -1,0 +1,388 @@
+/*
+    Timeline
+    
+    Author: André Luiz Rabêllo
+    Version: 1.0.0
+*/
+.timeline {
+  position: relative;
+  margin-top: 16px;
+  margin-bottom: 30px;
+}
+.timeline:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.2) 3%, rgba(60, 141, 188, 0.2) 5%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+  content: "";
+  height: 6px;
+  position: absolute;
+  top: 17px;
+  right: 0;
+  left: 0;
+}
+.timeline ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.timeline ul li {
+  display: inline-block;
+  position: relative;
+}
+.timeline ul li > div {
+  background: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  min-width: 160px;
+  left: -60px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 5px 10px;
+  position: absolute;
+  transition: opacity 0.3s ease 0s, visibility 0s linear 0.3s;
+  visibility: hidden;
+  width: auto;
+  z-index: 5;
+}
+.timeline ul li > div > div + div {
+  margin-top: 10px;
+}
+.timeline ul li > .timespan {
+  position: absolute;
+  top: -16px;
+  right: -40px;
+  left: -40px;
+  text-align: center;
+  color: #777;
+  font-size: 12px;
+  font-weight: 400;
+}
+.timeline ul li > input {
+  position: absolute;
+  left: -9999px;
+}
+.timeline ul li > input:focus ~ div,
+.timeline ul li > label:hover ~ div {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease 0s;
+}
+.timeline ul li > label .fa {
+  background: #bdbdbd;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  text-align: center;
+  transition: all 0.3s ease-out;
+}
+.timeline ul li > label:hover .fa,
+.timeline ul li > input:focus ~ label .fa {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.timeline.top ul li > div {
+  bottom: 28px;
+}
+.timeline[data-progress="1"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.4) 3%, rgba(60, 141, 188, 0.2) 5%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="2"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.6) 3%, rgba(60, 141, 188, 0.2) 5%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="3"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.2) 5%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="4"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.2) 6%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="5"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.2) 7%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="6"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 4%, rgba(60, 141, 188, 0.2) 8%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="7"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 5%, rgba(60, 141, 188, 0.2) 9%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="8"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 6%, rgba(60, 141, 188, 0.2) 10%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="9"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 7%, rgba(60, 141, 188, 0.2) 11%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="10"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 8%, rgba(60, 141, 188, 0.2) 12%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="11"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 9%, rgba(60, 141, 188, 0.2) 13%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="12"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 10%, rgba(60, 141, 188, 0.2) 14%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="13"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 11%, rgba(60, 141, 188, 0.2) 15%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="14"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 12%, rgba(60, 141, 188, 0.2) 16%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="15"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 13%, rgba(60, 141, 188, 0.2) 17%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="16"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 14%, rgba(60, 141, 188, 0.2) 18%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="17"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 15%, rgba(60, 141, 188, 0.2) 19%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="18"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 16%, rgba(60, 141, 188, 0.2) 20%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="19"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 17%, rgba(60, 141, 188, 0.2) 21%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="20"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 18%, rgba(60, 141, 188, 0.2) 22%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="21"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 19%, rgba(60, 141, 188, 0.2) 23%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="22"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 20%, rgba(60, 141, 188, 0.2) 24%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="23"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 21%, rgba(60, 141, 188, 0.2) 25%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="24"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 22%, rgba(60, 141, 188, 0.2) 26%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="25"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 23%, rgba(60, 141, 188, 0.2) 27%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="26"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 24%, rgba(60, 141, 188, 0.2) 28%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="27"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 25%, rgba(60, 141, 188, 0.2) 29%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="28"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 26%, rgba(60, 141, 188, 0.2) 30%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="29"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 27%, rgba(60, 141, 188, 0.2) 31%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="30"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 28%, rgba(60, 141, 188, 0.2) 32%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="31"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 29%, rgba(60, 141, 188, 0.2) 33%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="32"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 30%, rgba(60, 141, 188, 0.2) 34%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="33"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 31%, rgba(60, 141, 188, 0.2) 35%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="34"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 32%, rgba(60, 141, 188, 0.2) 36%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="35"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 33%, rgba(60, 141, 188, 0.2) 37%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="36"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 34%, rgba(60, 141, 188, 0.2) 38%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="37"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 35%, rgba(60, 141, 188, 0.2) 39%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="38"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 36%, rgba(60, 141, 188, 0.2) 40%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="39"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 37%, rgba(60, 141, 188, 0.2) 41%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="40"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 38%, rgba(60, 141, 188, 0.2) 42%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="41"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 39%, rgba(60, 141, 188, 0.2) 43%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="42"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 40%, rgba(60, 141, 188, 0.2) 44%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="43"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 41%, rgba(60, 141, 188, 0.2) 45%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="44"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 42%, rgba(60, 141, 188, 0.2) 46%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="45"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 43%, rgba(60, 141, 188, 0.2) 47%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="46"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 44%, rgba(60, 141, 188, 0.2) 48%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="47"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 45%, rgba(60, 141, 188, 0.2) 49%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="48"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 46%, rgba(60, 141, 188, 0.2) 50%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="49"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 47%, rgba(60, 141, 188, 0.2) 51%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="50"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 48%, rgba(60, 141, 188, 0.2) 52%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="51"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 49%, rgba(60, 141, 188, 0.2) 53%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="52"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 50%, rgba(60, 141, 188, 0.2) 54%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="53"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 51%, rgba(60, 141, 188, 0.2) 55%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="54"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 52%, rgba(60, 141, 188, 0.2) 56%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="55"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 53%, rgba(60, 141, 188, 0.2) 57%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="56"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 54%, rgba(60, 141, 188, 0.2) 58%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="57"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 55%, rgba(60, 141, 188, 0.2) 59%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="58"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 56%, rgba(60, 141, 188, 0.2) 60%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="59"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 57%, rgba(60, 141, 188, 0.2) 61%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="60"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 58%, rgba(60, 141, 188, 0.2) 62%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="61"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 59%, rgba(60, 141, 188, 0.2) 63%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="62"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 60%, rgba(60, 141, 188, 0.2) 64%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="63"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 61%, rgba(60, 141, 188, 0.2) 65%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="64"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 62%, rgba(60, 141, 188, 0.2) 66%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="65"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 63%, rgba(60, 141, 188, 0.2) 67%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="66"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 64%, rgba(60, 141, 188, 0.2) 68%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="67"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 65%, rgba(60, 141, 188, 0.2) 69%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="68"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 66%, rgba(60, 141, 188, 0.2) 70%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="69"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 67%, rgba(60, 141, 188, 0.2) 71%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="70"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 68%, rgba(60, 141, 188, 0.2) 72%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="71"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 69%, rgba(60, 141, 188, 0.2) 73%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="72"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 70%, rgba(60, 141, 188, 0.2) 74%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="73"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 71%, rgba(60, 141, 188, 0.2) 75%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="74"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 72%, rgba(60, 141, 188, 0.2) 76%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="75"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 73%, rgba(60, 141, 188, 0.2) 77%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="76"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 74%, rgba(60, 141, 188, 0.2) 78%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="77"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 75%, rgba(60, 141, 188, 0.2) 79%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="78"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 76%, rgba(60, 141, 188, 0.2) 80%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="79"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 77%, rgba(60, 141, 188, 0.2) 81%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="80"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 78%, rgba(60, 141, 188, 0.2) 82%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="81"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 79%, rgba(60, 141, 188, 0.2) 83%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="82"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 80%, rgba(60, 141, 188, 0.2) 84%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="83"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 81%, rgba(60, 141, 188, 0.2) 85%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="84"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 82%, rgba(60, 141, 188, 0.2) 86%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="85"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 83%, rgba(60, 141, 188, 0.2) 87%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="86"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 84%, rgba(60, 141, 188, 0.2) 88%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="87"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 85%, rgba(60, 141, 188, 0.2) 89%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="88"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 86%, rgba(60, 141, 188, 0.2) 90%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="89"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 87%, rgba(60, 141, 188, 0.2) 91%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="90"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 88%, rgba(60, 141, 188, 0.2) 92%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="91"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 89%, rgba(60, 141, 188, 0.2) 93%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="92"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 90%, rgba(60, 141, 188, 0.2) 94%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="93"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 91%, rgba(60, 141, 188, 0.2) 95%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="94"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 92%, rgba(60, 141, 188, 0.2) 96%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="95"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 93%, rgba(60, 141, 188, 0.2) 97%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="96"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 94%, rgba(60, 141, 188, 0.2) 97%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="97"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 95%, rgba(60, 141, 188, 0.2) 97%, transparent 100%);
+}
+.timeline[data-progress="98"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 95%, rgba(60, 141, 188, 0.4) 97%, transparent 100%);
+}
+.timeline[data-progress="99"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 95%, rgba(60, 141, 188, 0.6) 97%, transparent 100%);
+}
+.timeline[data-progress="100"]:before {
+  background: linear-gradient(to right, transparent 0%, rgba(60, 141, 188, 0.8) 3%, rgba(60, 141, 188, 0.8) 95%, rgba(60, 141, 188, 0.8) 97%, transparent 100%);
+}
